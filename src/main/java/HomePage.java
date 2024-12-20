@@ -181,7 +181,7 @@ public class HomePage extends BasePage {
     public boolean isAllCategoriesContainerDisplayed(){
         return allCategoriesContainer.isDisplayed();
     }
-    public boolean getTextInputField(String element){return Objects.equals(inputField.getAttribute("placeholder"), element);}
+    public boolean getSearchFieldPlaceholder(String element){return Objects.equals(inputField.getAttribute("placeholder"), element);}
 
 
 

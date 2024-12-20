@@ -8,9 +8,10 @@ import java.time.Duration;
 public class BasePageTest {
 
     HomePage homePage;
+    LoginPage loginPage;
+    SignUpPage signUpPage;
 
     WebDriver driver;
-
     public WebDriver openBrowser(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -24,6 +25,10 @@ public class BasePageTest {
     public void setUp(){
         driver = openBrowser();
         homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        signUpPage = new SignUpPage(driver);
+
+
     }
 
     @AfterMethod
