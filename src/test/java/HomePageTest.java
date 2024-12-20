@@ -26,7 +26,7 @@ public class HomePageTest extends BasePageTest {
         Assert.assertTrue(homePage.isAllCategoriesButtonDisplayed());
 
         Assert.assertTrue(homePage.isInputFieldDisplayed());
-        Assert.assertTrue(homePage.getTextInputField(("Pronađi proizvod, kategoriju ili brend")));
+        Assert.assertTrue(homePage.getSearchFieldPlaceholder(("Pronađi proizvod, kategoriju ili brend")));
         Assert.assertTrue(homePage.isSearchIconDisplayed());
 
         Assert.assertTrue(homePage.isSignInDisplayed());
