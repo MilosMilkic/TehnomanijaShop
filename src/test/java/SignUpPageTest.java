@@ -362,8 +362,7 @@ public class SignUpPageTest extends BasePageTest {
 
         signUpPage.enterCaptchaText("");
         signUpPage.clickCreateAccountButton();
-    //
-        //    Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
+    //    Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
     }
 
     @Test
