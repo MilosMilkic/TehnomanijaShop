@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -10,6 +11,9 @@ public class BasePageTest {
     HomePage homePage;
     LoginPage loginPage;
     SignUpPage signUpPage;
+    ForgotPasswordPage forgotPasswordPage;
+
+    WebDriverWait wait;
 
     WebDriver driver;
     public WebDriver openBrowser(){
@@ -27,6 +31,7 @@ public class BasePageTest {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
+        forgotPasswordPage = new ForgotPasswordPage(driver);
 
 
     }

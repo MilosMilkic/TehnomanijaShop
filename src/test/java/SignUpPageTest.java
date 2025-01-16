@@ -280,7 +280,7 @@ public class SignUpPageTest extends BasePageTest {
         signUpPage.openSignUpPage();
         signUpPage.enterFirstName("Miki");
         signUpPage.enterLastName("Runner");
-        signUpPage.enterEmail("mikirunner1@gmali.cm");
+        signUpPage.enterEmail("mikirunner1@.com");
         signUpPage.enterPassword("Shopping011!");
         signUpPage.enterConfirmPassword("Shopping011!");
         signUpPage.selectShowPasswordCheckbox();
@@ -351,7 +351,115 @@ public class SignUpPageTest extends BasePageTest {
     }
 
     @Test
-    public void signUpWithInvalidEmailWithSpaces(){
+    public void signUpWithInvalidEmailContainingDotBeforeAtSymbol(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1.@gmail.com");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+     //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailDomainContainingConsecutiveDots(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1@gmail..com");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+        //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailDomainStartingWithDash(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1@-gmail.com");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+        //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Please enter a valid email address.");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailDomainEndingWithDash(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1@gmail-.com");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+        //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Please enter a valid email address.");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailWithoutDotInDomain(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1@gmailcom");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+        //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailContainingSpecialCharacter(){
+        signUpPage.openSignUpPage();
+        signUpPage.enterFirstName("Miki");
+        signUpPage.enterLastName("Runner");
+        signUpPage.enterEmail("mikirunner1@gm%ail.com");
+        signUpPage.enterPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordValue(), "Shopping011!");
+        Assert.assertEquals(signUpPage.getPasswordStrengthMessage(), "Jačina lozinke: Veoma jaka");
+        signUpPage.enterConfirmPassword("Shopping011!");
+        Assert.assertEquals(signUpPage.getConfirmationPasswordValue(), "Shopping011!");
+        signUpPage.selectShowPasswordCheckbox();
+
+        signUpPage.enterCaptchaText("");
+        signUpPage.clickCreateAccountButton();
+        //   Assert.assertEquals(signUpPage.getEmailErrorMessage(), "Molimo Vas da unesete ispravnu email adresu (Ex: johndoe@domain.com).");
+    }
+
+    @Test
+    public void signUpWithInvalidEmailContainingSpaces(){
         signUpPage.openSignUpPage();
         signUpPage.enterFirstName("Miki");
         signUpPage.enterLastName("Runner");
