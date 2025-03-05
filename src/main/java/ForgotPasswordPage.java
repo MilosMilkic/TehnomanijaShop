@@ -26,7 +26,7 @@ public class ForgotPasswordPage extends BasePage {
     @FindBy (css = "#send2")
     WebElement changePasswordButton;
 
-    @FindBy(css = ".page.messages")
+    @FindBy(css = "div[data-bind='html: $parent.prepareMessageForHtml(message.text)']")
     WebElement passwordResetMessage;
 
 

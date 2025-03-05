@@ -27,8 +27,6 @@ public class ForgotPasswordPageTest extends BasePageTest {
         forgotPasswordPage.clickChangePasswordButton();
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.tehnomanija.rs/customer/account/login/referer/aHR0cHM6Ly93d3cudGVobm9tYW5pamEucnMvY3VzdG9tZXIvYWNjb3VudC9pbmRleC8%2C/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(forgotPasswordPage.passwordResetMessage));
         Assert.assertTrue(forgotPasswordPage.isPasswordResetConfirmationMessageDisplayed());
         Assert.assertEquals(forgotPasswordPage.getPasswordResetConfirmationMessage(), "Ako postoji nalog koji je vezan za ovu email adresu, na istu ćete dobiti upustvo za promenu lozinke");
 
