@@ -42,15 +42,10 @@ public class HomePage extends BasePage {
     WebElement emptyCartMessage;
     @FindBy(css = ".amsearch-input-wrapper .amsearch-input")
     WebElement inputField;
-    @FindBy(css = "button[title='Clear Field']")
-    WebElement clearSearchByX;
-    @FindBy(css = ".amsearch-result-section .amsearch-message-block")
-    WebElement searchResultSection;
     @FindBy(css = "button[title='Pretraži']")
     WebElement searchIcon;
     @FindBy(className = "ammenu-logo")
     WebElement logo;
-    //@FindBy(css = ".ammenu-button.-hamburger.-trigger")
     @FindBy(xpath = "//button[@class='ammenu-button -hamburger -trigger']")
     WebElement allCategories;
     @FindBy(css = ".ammenu-button.-hamburger.-trigger.active_btn")
@@ -181,7 +176,7 @@ public class HomePage extends BasePage {
     public boolean isAllCategoriesContainerDisplayed(){
         return allCategoriesContainer.isDisplayed();
     }
-    public boolean getSearchFieldPlaceholder(String element){return Objects.equals(inputField.getAttribute("placeholder"), element);}
+    public String getSearchFieldPlaceholder(){ return inputField.getAttribute("placeholder");}
 
 
 
